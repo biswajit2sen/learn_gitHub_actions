@@ -1,0 +1,19 @@
+name: 'dbt_core_second_project_sf_website'
+version: '1.0.0'
+
+# This setting configures which "profile" dbt uses for this project.
+profile: 'dbt_core_second_project_sf_website'
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+
+models:
+  dbt_core_second_project_sf_website:
+    staging:
+      +materialized: views
+      +schema: staging
+    
+    marts:
+      +materialized: table
+      +schema: marts
+      +transient: false

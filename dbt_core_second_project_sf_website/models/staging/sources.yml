@@ -1,0 +1,23 @@
+sources:
+  - name: tpch
+    description: "This is the source for the TPC-H dataset."
+    database: snowflake_sample_data
+    schema: tpch_sf1
+    tables:
+      - name: orders
+        description: "This table contains order information."
+        columns:
+          - name: o_orderkey
+            tests:
+              - not_null
+              - unique
+      - name: lineitem
+        description: "This table contains line item information."
+        columns:
+          - name: l_orderkey
+            tests:
+              - relationships:
+                  arguments:
+                    to: source('tpch', 'orders')
+                    field: o_orderkey
+

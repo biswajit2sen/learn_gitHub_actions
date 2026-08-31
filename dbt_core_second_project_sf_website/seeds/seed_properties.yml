@@ -1,0 +1,19 @@
+seeds:
+  - name: nations
+    description: "A seed file containing a list of nations."
+    config:
+      column_types:
+        N_NATIONKEY: VARCHAR(2)
+        N_NAME: VARCHAR
+        N_REGIONKEY: VARCHAR(2)
+        LAST_UPDATED_DATE: DATE
+      schema: SEED
+    columns:
+      - name: N_NATIONKEY
+        tests:
+          - not_null
+          - unique
+      - name: N_REGIONKEY
+        tests:
+          - not_null
+          - unique
