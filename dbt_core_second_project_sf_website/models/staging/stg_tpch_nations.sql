@@ -1,4 +1,3 @@
-"""
 {{
     config(
         materialized='incremental',
@@ -30,4 +29,3 @@ select * from renamed
 {% if is_incremental() %}
 where LAST_UPDATED_DATE > (select max(LAST_UPDATED_DATE) from {{this}})
 {% endif %}
-"""
