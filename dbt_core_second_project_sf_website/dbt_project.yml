@@ -17,3 +17,7 @@ models:
       +materialized: table
       +schema: marts
       +transient: false
+
+vars:
+  var_name = 'String'
+  var_name_1 = 'how'
