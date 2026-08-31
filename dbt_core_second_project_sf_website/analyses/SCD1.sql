@@ -1,3 +1,4 @@
+"""
 {{
     config(
         materialized='incremental',
@@ -8,7 +9,7 @@
 }}
 
 with source as (
-    select * from {{ ref('stg_cust') }}
+    select * from {{ ref('stg_tpch_orders') }}
 )
 
 select * from source
@@ -16,3 +17,4 @@ select * from source
 {% if is_incremental() %}
 where updated_at > (select max(updated_at) from {{ this }})
 {% endif %}
+"""

@@ -10,7 +10,7 @@ seed-paths: ["seeds"]
 models:
   dbt_core_second_project_sf_website:
     staging:
-      +materialized: views
+      +materialized: table
       +schema: staging
     
     marts:
@@ -19,5 +19,5 @@ models:
       +transient: false
 
 vars:
-  var_name = 'String'
-  var_name_1 = 'how'
+  var_name : 20
+  var_name_1 : 21

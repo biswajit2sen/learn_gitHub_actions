@@ -7,7 +7,7 @@
 }}
 with source_data as
 (
-    select * from {{ ref('stg_orders') }}
+    select * from {{ ref('stg_tpch_orders') }}
 )
 select * from source_data
 {% if is_incremental() %}
